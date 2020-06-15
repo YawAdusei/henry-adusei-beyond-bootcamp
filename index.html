@@ -8,30 +8,38 @@
 </head>
 <body>
     
-    <div class="app-wrapper">
-        <div class="searchContainer"> 
-            <input type="text" autocomplete= "off" name="searchControl" placeholder="Search for a city..." class="searchInput">
-            <button class="searchBtn" id="searchBtn">Search</button>
+    <header>
+        <div class="wrapper">
+            <h1>Weather App</h1>
+            <p>Type in the name of any city to get the current forecast</p>
         </div>
+    </header>
 
-        <div class="weatherContainer">
-            <div class="weatherMain">
-                <div class="cityName">Toronto, ON</div>
-                <div class="temperatureValue">
-                    <!-- <p>15<span>°c</span></p> -->
+    <main>
+        <div class="wrapper">
+            <div class="appWrapper">
+                <div class="searchContainer"> 
+                    <input type="text" autocomplete= "off" name="searchControl" placeholder="Search for a city..." class="searchInput">
+                    <button class="searchBtn" id="searchBtn">Search</button>
                 </div>
-                <div class="currentWeatherDescription">
-                    <!-- <p>Sunny</p> -->
-                </div>
-
-                <div class="weatherIcon">
-
+                
+                <div class="weatherContainer">
+                    <div class="cityName"></div>
+                    <div class="weatherMain">
+                        <div class="temperatureValue">
+                            <!-- <p>15<span>°c</span></p> -->
+                        </div>
+                        <div class="currentWeatherDescription">
+                            <!-- <p>Sunny</p> -->
+                        </div>
+                        <div class="weatherIcon"></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <script src="app.js"></script>
-    
-</body>
-</html>
+    </main>
+        
+        <script src="app.js"></script>
+        
+    </body>
+    </html>

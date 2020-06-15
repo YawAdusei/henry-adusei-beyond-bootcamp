@@ -2,20 +2,18 @@
 
         // User enters name of a city into the search bar
             // When the user clicks on submit button, make a call to weather api to retrieve:
-            // current weather description ie "sunny"
-            // Icon to match weather condition
-            // current temperature value ie 20 degrees celcius
-            // forecast for 5 days out
-
-        // place the results on the DOM dynamically
-            // current weather description
-            // icon to match weather condition 
-            // current temperature value
-            // day image or night image depending on time of day
-
-        // Give the user the option to start over and search for the weather in another city.
-
-        // Stretch Goals 
+                // current weather description ie "sunny"
+                // Icon to match weather condition
+                // current temperature value ie 20 degrees celcius
+            
+            // place the results on the DOM dynamically
+                // current weather description
+                // icon to match weather condition 
+                // current temperature value
+                
+            // Give the user the option to start over and search for the weather in another city.
+            
+            // Stretch Goals 
             // forecast for 5 days out
             // Give user choice to toggle between celcius and fahrenheit.
             // Give the user ability to save a list of cities to check the forecast for.
@@ -46,8 +44,10 @@
         })
     }
 
+    
     const init = function(query) {
         console.log(query);
+        // The switch statement will display a different background image based on the result from the search.
         switch (query.weather[0].main) {
           case "Clear":
               document.body.style.backgroundImage = 'url("./icons/clear.jpg")';
@@ -78,28 +78,56 @@
             default:
                 break;
             }
+            
             const weatherDescriptionElement = document.querySelector('.currentWeatherDescription');
             const temperatureElement = document.querySelector('.temperatureValue');
             const locationElement = document.querySelector(".cityName");
             const iconElement = document.querySelector(".weatherIcon");
             
-            iconElement.src = 'http://openweathermap.org/img/w/' + query.weather[0].icon + '.png';
-            
-            const resultDescription = query.weather[0].description
-            console.log(resultDescription);
-            weatherDescriptionElement.innerHTML = `<p>${resultDescription}</p>`;
+            const iconResult = `http://openweathermap.org/img/wn/${query.weather[0].icon}.png`;
+            console.log(iconResult);
+            iconElement.innerHTML = `<img src='${iconResult}' alt='weather icon'>`;
 
+            // Displaying the weather description 
+                // created a variable to get the weather description
+            const resultDescription = query.weather[0].description;
+            console.log(resultDescription);
+                // dynamically place result in the weather description div
+            weatherDescriptionElement.innerHTML = `<p>${resultDescription.charAt(0).toUpperCase()}${resultDescription.slice(1)}</p>`;
+
+            // Displaying the name of the city
+                // created a variable to get the city
             const resultCity = query.name + ', ' + query.sys.country
             console.log(resultCity);
-            locationElement.innerHTML = `<h2>${resultCity}`;
+                //  dynamically place result in the location div
+            locationElement.innerHTML = `<h2>${resultCity}</h2>`;
 
+            // Displaying the temperature 
+                // created a variable to get the temperature
             const resultTemperature = query.main.temp
             console.log(resultTemperature);
-            temperatureElement.innerHTML = `<h3>${resultTemperature}`;
+                // dynamically place result in the temperature value div
+            temperatureElement.innerHTML = `<h3>${Math.floor(
+              resultTemperature)}&#176</h3>`;
+
+            // calling the function to set the position of the weather container 
+            setPositionforWeatherInfo();
+        }
+
+        const setPositionforWeatherInfo = () => {
+            let weatherContainer = document.querySelector('.weatherContainer');
+            let weatherContainerHeight = weatherContainer.clientHeight;
+            let weatherContainerWidth = weatherContainer.clientWidth;
+
+            weatherContainer.style.left = `calc(50% - ${weatherContainerWidth / 2}px)`;
+            weatherContainer.style.top = `calc(50% - ${weatherContainerHeight / 1.3}px)`;
+            weatherContainer.style.visibility = 'visible';
         }
 
     // Select the search button and the search box
-    document.querySelector(".searchBtn").addEventListener("click", () => {
+    document.querySelector(".searchBtn").addEventListener("click", (e) => {
+        // get the value inputted in the search box
+        e.preventDefault();
         let searchTerm = document.querySelector(".searchInput").value;
         if (searchTerm)
         searchWeather(searchTerm);
