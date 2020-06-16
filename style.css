@@ -34,7 +34,7 @@ body {
 .appWrapper {
     display: flex;
     flex-direction: column;
-    min-height: 70vh;
+    height: 62.5vh;
 }
 
 header {
@@ -46,15 +46,22 @@ header h1 {
     font-size: 70px;
 }
 
+
+/* main {
+    height: 60vh;
+} */
 .weatherContainer {
 
     background-color: rgba(black, black, black, 0.25);
     box-shadow: 1px 1px 1px black;
     padding: 50px;
-    margin: 120px 0;
+    margin: 100px 0;
     border-radius: 15px;
     position: absolute;
     visibility: hidden;
+    text-align: center;
+
+    /* display: table; */
 }
 
 .weatherContainer h2 {
@@ -109,7 +116,10 @@ header h1 {
     vertical-align: 25%;
 }
 
-/* footer {
-    margin: 0 auto;
-} */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
 
