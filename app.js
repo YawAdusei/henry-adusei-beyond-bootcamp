@@ -46,7 +46,7 @@
 
     
     const init = function(query) {
-        console.log(query);
+        // console.log(query);
         // The switch statement will display a different background image based on the result from the search.
         switch (query.weather[0].main) {
           case "Clear":
@@ -85,27 +85,23 @@
             const iconElement = document.querySelector(".weatherIcon");
             
             const iconResult = `http://openweathermap.org/img/wn/${query.weather[0].icon}.png`;
-            console.log(iconResult);
             iconElement.innerHTML = `<img src='${iconResult}' alt='weather icon'>`;
 
             // Displaying the weather description 
                 // created a variable to get the weather description
             const resultDescription = query.weather[0].description;
-            console.log(resultDescription);
                 // dynamically place result in the weather description div
             weatherDescriptionElement.innerHTML = `<p>${resultDescription.charAt(0).toUpperCase()}${resultDescription.slice(1)}</p>`;
 
             // Displaying the name of the city
                 // created a variable to get the city
             const resultCity = query.name + ', ' + query.sys.country
-            console.log(resultCity);
                 //  dynamically place result in the location div
             locationElement.innerHTML = `<h2>${resultCity}</h2>`;
 
             // Displaying the temperature 
                 // created a variable to get the temperature
             const resultTemperature = query.main.temp
-            console.log(resultTemperature);
                 // dynamically place result in the temperature value div
             temperatureElement.innerHTML = `<h3>${Math.floor(
               resultTemperature)}&#176</h3>`;
@@ -114,6 +110,7 @@
             setPositionforWeatherInfo();
         }
 
+        // function to display the weather information in the middle of the screen
         const setPositionforWeatherInfo = () => {
             let weatherContainer = document.querySelector('.weatherContainer');
             let weatherContainerHeight = weatherContainer.clientHeight;
@@ -133,18 +130,7 @@
         searchWeather(searchTerm);
     })
     
-// The weather object
-    const weather = {
-        temperature: {
-            value: 18,
-            unit: 'celcius'
-        },
 
-        description: '',
-        iconId: '',
-        city: '',
-        country: ''
-    };
 
 // function to turn celcius to fahrenheit
 // celciusToFahrenheit = function(temperature) {
