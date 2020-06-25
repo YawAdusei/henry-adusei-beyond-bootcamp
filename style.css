@@ -107,8 +107,14 @@ header h1 {
 
 footer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 15px;
 }
+
+
+/* footer p {
+    display: inline-block;
+} */
 

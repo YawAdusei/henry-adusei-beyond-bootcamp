@@ -130,26 +130,26 @@
         searchWeather(searchTerm);
     })
     
-
+    
 
 // function to turn celcius to fahrenheit
-// celciusToFahrenheit = function(temperature) {
-//     return (temperature * 9 / 5) + 32; 
-// }
+celciusToFahrenheit = function(temperature) {
+    return (temperature * 9 / 5) + 32; 
+}
 
-// tempElement.addEventListener("click" , function() {
+// temperatureElement.addEventListener("click" , function() {
 
 //     if (weather.temperature.value === undefined) return;
 //     if (weather.temperature.unit ===  'celcius') {
-//         let fahrenheit = celciusToFahrenheit(weather.temperature.value);
+//         let fahrenheit = celciusToFahrenheit(query.temperature.value);
     
 //         fahrenheit = Math.floor(fahrenheit);
-//         tempElement.innerHTML = `${fahrenheit} &deg; <span>F</span>`;
+//         temperatureElement.innerHTML = `${fahrenheit} &deg; <span>F</span>`;
 //         weather.temperature.unit = 'fahrenheit';
     
 //     } else {
-//         tempElement.innerHTML = `${weather.temperature.value} &deg; <span>C</span>`;
-//         weather.temperature.unit = 'celcius';
+//         temperatureElement.innerHTML = `${query.temperature.value} &deg; <span>C</span>`;
+//         query.temperature.unit = 'celcius';
 //     }
 // })
 
